@@ -42,7 +42,7 @@ module Capistrano
               @colorized[host] = (host.ljust(len) + ' | ').colorize(color)
             end
           end
-          @colorized[hostname]
+          @colorized[hostname.split('.')[0]]
         end
 
         def colors
