@@ -35,7 +35,7 @@ module Capistrano
         def colorized(hostname)
           if @colorized.nil?
             @colorized = {}
-            servers = find_servers_for_task(current_task).map(&:to_s)
+            servers = find_servers_for_task(current_task).map{|s| s.to_s.split('.')[0]}
             len = servers.map(&:length).max
             servers.each_with_index do |host, i|
               color = colors[i % colors.size]
